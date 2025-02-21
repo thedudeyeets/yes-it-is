@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes, It Is</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            font-size: 50px;
+            color: red;
+            transition: transform 0.5s ease-in-out;
+        }
+        .moving-box {
+            display: inline-block;
+            background-color: yellow;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            animation: moveAround 3s infinite alternate;
+        }
+        @keyframes moveAround {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(100px); }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Yes, it is.</h1>
+    <button onclick="makeItSpin()">Make it spin!</button>
+    <div class="moving-box">Yes, it is.</div>
+    <button onclick="increaseCount()">Click Count: <span id="counter">0</span></button>
+    <p id="dynamicText">Yes, it is.</p>
+    
+    <script>
+        let count = 0;
+        function makeItSpin() {
+            document.getElementById("title").style.transform = "rotate(360deg)";
+            setTimeout(() => {
+                document.getElementById("title").style.transform = "rotate(0deg)";
+            }, 500);
+        }
+        function increaseCount() {
+            count++;
+            document.getElementById("counter").innerText = count;
+            document.getElementById("dynamicText").innerText = count > 10 ? "Yes, it REALLY is!" : "Yes, it is.";
+        }
+    </script>
+</body>
+</html>
